@@ -17,8 +17,11 @@ var commentRoutes = require("./routes/comments"),
 campgroundRoutes  = require("./routes/campgrounds"),
 indexRoutes       = require("./routes/index")
 
-mongoose.connect("mongodb://localhost/yelp_camp", { useMongoClient: true });
+// local DB!
+// mongoose.connect("mongodb://localhost/yelp_camp", { useMongoClient: true });
 
+mongoose.connect("mongodb://Alkaloid:diolakla@ds111804.mlab.com:11804/ayelpcamp", { useMongoClient: true });
+// mongodb://Alkaloid:diolakla@ds111804.mlab.com:11804/ayelpcamp
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
