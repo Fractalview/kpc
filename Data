@@ -1,0 +1,3 @@
+{ "_id" : ObjectId("5994644e52ce731735e3efd3"), "name" : "Granite Hill", "image" : "https://farm4.staticflickr.com/3706/10718494266_56543a9eb7.jpg", "description" : "This is a huge granite hill. No bathrooms, no water. Beautiful granite!", "__v" : 0 }
+{ "_id" : ObjectId("5996dcb2b9f1600b49b7accc"), "name" : "Sandcamp", "image" : "https://farm2.staticflickr.com/1363/1342367857_2fd12531e7.jpg", "description" : "Lots of sand and minerals.", "__v" : 0 }
+
