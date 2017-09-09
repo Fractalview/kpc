@@ -1,20 +1,21 @@
-var express = require("express");
-var router = express.Router();
-var passport = require("passport");
-var User = require("../models/user");
+// DEPENDENCIES
+var express = require("express"),
+router      = express.Router(),
+passport    = require("passport"),
+User        = require("../models/user");
 
 
-// root route
+// ROOT ROUTE
 router.get("/", function (req, res) {
     res.render("landing");
 });
 
-// show register form
+// SHOW REGISTER FORM
 router.get("/register", function(req, res){
     res.render("register");
 });
 
-// handle sign up logic
+// HANDLE SIGNUP LOGIC
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
@@ -30,12 +31,12 @@ router.post("/register", function(req, res){
     });
 });
 
-// show login form
+// SHOW LOGIN FORM
 router.get("/login", function(req, res){
     res.render("login");
 });
 
-// handling login logic
+// HANDLING LOGIN LOGIC
 router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/campgrounds",
@@ -44,11 +45,12 @@ router.post("/login", passport.authenticate("local",
         
 });
 
-// logout route
+// LOGOUT ROUTUE
 router.get("/logout", function(req, res){
     req.logout();
     req.flash("success", "Logged you out.");
     res.redirect("/campgrounds");
 });
 
+// EXPORTS
 module.exports = router;

@@ -1,8 +1,7 @@
+// DEPENDENCIES
 var mongoose = require("mongoose");
 
-
-//SCHEMA SETUP
-
+// SCHEMA SETUP
 var campgroundSchema = new mongoose.Schema({
     name: String,
     price: String,
@@ -23,4 +22,5 @@ var campgroundSchema = new mongoose.Schema({
     ]
 });
 
+// EXPORTS
 module.exports = mongoose.model("Campground", campgroundSchema);

@@ -1,12 +1,13 @@
-var express = require("express");
-var router = express.Router();
-var Campground = require("../models/campground");
-var middleware = require("../middleware");
+// DEPENDENCIES
+var express = require("express"),
+router      = express.Router(),
+Campground  = require("../models/campground"),
+middleware  = require("../middleware");
 
 
-// INDEX - show all campgrounds
+// INDEX - SHOW ALL CAMPGROUNDS
 router.get("/", function (req, res) {
-    // Get all campgrounds from database    
+    // get all campgrounds from database    
     Campground.find({}, function (err, allCampgrounds) {
         if (err) {
             console.log(err);
@@ -17,7 +18,7 @@ router.get("/", function (req, res) {
 });
 
 
-// CREATE - add new campground to DB
+// CREATE - ADD A NEW CAMPGROUND TO DB
 router.post("/", middleware.isLoggedIn, function (req, res) {
     var name = req.body.name;
     var price = req.body.price;
@@ -28,7 +29,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         username: req.user.username
     }
     var newCampground = { name: name, price: price, image: image, description: description, author: author };
-    // Create a new campground and save to DB
+    // create a new campground and save to DB
     Campground.create(newCampground, function (err, newlyCreated) {
         if (err) {
             console.log(err);
@@ -41,13 +42,13 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
 });
 
 
-// NEW - show form to create a new campground
+// NEW - SHOW FORM TO CREATE A NEW CAMPGROUND
 router.get("/new", middleware.isLoggedIn, function (req, res) {
     res.render("campgrounds/new.ejs");
 });
 
 
-//SHOW - shows more info about one campground
+//SHOW - SHOWS MORE INFO ABOUT ONE CAMPGROUND
 router.get("/:id", function (req, res) {
     // find the campground with provided ID
     Campground.findById(req.params.id).populate("comments").exec(function (err, foundCampground) {
@@ -92,4 +93,5 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function (req, res) {
     })
 });
 
+// EXPORTS
 module.exports = router;

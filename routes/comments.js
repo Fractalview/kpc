@@ -1,8 +1,9 @@
-var express = require("express");
-var router = express.Router({mergeParams: true});
-var Campground = require("../models/campground");
-var Comment = require("../models/comment");
-var middleware = require("../middleware");
+// DEPENDENCIES
+var express = require("express"),
+router      = express.Router({mergeParams: true}),
+Campground  = require("../models/campground"),
+Comment     = require("../models/comment"),
+middleware  = require("../middleware");
 
 // COMMENTS EDIT ROUTE
 router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
@@ -15,7 +16,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
     })
 });
 
-// COMMENT UPDATE
+// COMMENT UPDATE ROUTE
 router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
         if(err){
@@ -39,9 +40,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
     })
 })
 
-
-
-// comments new
+// NEW COMMENT ROUTE
 router.get("/new", middleware.isLoggedIn, function (req, res) {
     // find campground by id
     Campground.findById(req.params.id, function (err, campground) {
@@ -53,7 +52,7 @@ router.get("/new", middleware.isLoggedIn, function (req, res) {
     })
 })
 
-// comments create
+// COMMENT CREATION ROUTE
 router.post("/", middleware.isLoggedIn, function (req, res) {
     // lookup campgound using ID
     Campground.findById(req.params.id, function (err, campground) {
@@ -81,6 +80,5 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
     });
 });
 
-
-
+//EXPORTS
 module.exports = router;

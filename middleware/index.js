@@ -1,10 +1,11 @@
-// all the middleware goes here
+// DEPENDENCIES
+var Campground = require("../models/campground"),
+Comment        = require("../models/comment");
+
+// MIDDLEWARE OBJECT
 var middlewareObj = {};
-var Campground = require("../models/campground");
-var Comment = require("../models/comment");
 
-
-
+// checkCampgroundOwnership MIDDLEWARE
 middlewareObj.checkCampgroundOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
         Campground.findById(req.params.id, function (err, foundCampground) {
@@ -27,7 +28,7 @@ middlewareObj.checkCampgroundOwnership = function (req, res, next) {
     }
 }
 
-
+// checkCommentOwnership MIDDLEWARE
 middlewareObj.checkCommentOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
         Comment.findById(req.params.comment_id, function (err, foundComment) {
@@ -49,7 +50,7 @@ middlewareObj.checkCommentOwnership = function (req, res, next) {
     }
 }
 
-
+// isLoggedIn MIDDLEWARE
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -58,4 +59,5 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/login");
 }
 
+// EXPORTS
 module.exports = middlewareObj

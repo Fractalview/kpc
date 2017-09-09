@@ -1,4 +1,4 @@
-
+// DEPENDENCIES
 var express   = require("express"),
 app           = express(),
 bodyParser    = require("body-parser"),
@@ -12,26 +12,28 @@ User          = require("./models/user"),
 methodOverride = require("method-override"),
 flash          = require("connect-flash")
 
-// requiring routes
+// REQUIRING ROUTES
 var commentRoutes = require("./routes/comments"),
 campgroundRoutes  = require("./routes/campgrounds"),
 indexRoutes       = require("./routes/index")
 
-
+// CONNECTING TO A DB USING ENVIRONMENT VARIABLE
 // mongoose.connect(process.env.DATABASEURL);
 
-// local DB!
+// CONNECTING TO LOCAL MONGODB
 // mongoose.connect("mongodb://localhost/yelp_camp", { useMongoClient: true });
 
+// CONNTECTING TO mLab (MONGODB HOSTING SITE)
 mongoose.connect("mongodb://Alkaloid:diolakla@ds111804.mlab.com:11804/ayelpcamp", { useMongoClient: true });
-// mongodb://Alkaloid:diolakla@ds111804.mlab.com:11804/ayelpcamp
+
+// APP MIDDLEWARE SETUP
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 app.set("view engine", "ejs");
 
-//seed the database
+// SEED THE DB
 // seedDB();
 
 // PASSPORT CONFIGURATION
@@ -40,13 +42,13 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// SETTING THE CURRENT USER AND FLASH MESSAGES
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
@@ -54,14 +56,15 @@ app.use(function(req, res, next){
     next();
 });
 
+// SETTING THE ROUTES
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-
+//SETTING THE PORT
 app.set('port', (process.env.PORT || 5000));
 
-//For avoidong Heroku $PORT error
+// AVOIDING HEROKU $PORT ERROR
 app.get('/', function(request, response) {
     var result = 'App is running'
     response.send(result);
@@ -69,7 +72,7 @@ app.get('/', function(request, response) {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-
+// STARTING THE APP ON A LOCAL SERVER
 // app.listen(3000, function () {
 //     console.log("YelpCamp server has started!");
 // });

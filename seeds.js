@@ -1,8 +1,9 @@
+// DEPENDENCIES
 var mongoose = require("mongoose");
 var Campground = require("./models/campground");
 var Comment = require("./models/comment");
 
-
+// SETTING THE SEED DATA
 var data = [
     {   
         name: "Granite Hill",
@@ -16,37 +17,39 @@ var data = [
     }
 ]
 
+// SEED FUNCTION
 function seedDB() {
-    //Remove all campgrounds
+    // remove all campgrounds
     Campground.remove({}, function (err) {
         if (err) {
             console.log(err);
         } else {
             console.log("removed campgrounds!");
-            //add a few campgrounds
+            // add a few campgrounds
             data.forEach(function (seed) {
                 Campground.create(seed, function (err, campground) {
                     if (err) {
-                        console.log(err)
+                        console.log(err);
                     } else {
-                        console.log("added a campground.")
-                        //add a few comments
+                        console.log("added a campground.");
+                        // add a few comments
                         Comment.create({ text: "This place is great.", author: "Homer" }, function (err, comment) {
                             if (err) {
                                 console.log(err);
                             } else {
                                 campground.comments.push(comment);
                                 campground.save();
-                                console.log("added a comment.")
+                                console.log("added a comment.");
                             }
 
                         });
                     }
-                })
-            })
+                });
+            });
 
         }
     });
 }
 
+//EXPORTING SEED
 module.exports = seedDB;
