@@ -1,16 +1,17 @@
 // DEPENDENCIES
-var express   = require("express"),
-app           = express(),
-bodyParser    = require("body-parser"),
-mongoose      = require("mongoose"),
-Campground    = require("./models/campground"),
-Comment       = require("./models/comment"),
-seedDB        = require("./seeds.js"),
-passport      = require("passport"),
-LocalStrategy = require("passport-local"),
-User          = require("./models/user"),
-methodOverride = require("method-override"),
-flash          = require("connect-flash")
+var express    = require("express"),
+app            = express(),
+bodyParser     = require("body-parser"),
+mongoose       = require("mongoose"),
+Campground     = require("./models/campground"),
+Comment        = require("./models/comment"),
+seedDB         = require("./seeds.js"),
+passport       = require("passport"),
+LocalStrategy  = require("passport-local"),
+User           = require("./models/user"),
+flash          = require("connect-flash"),
+methodOverride = require("method-override");
+
 
 // REQUIRING ROUTES
 var commentRoutes = require("./routes/comments"),
