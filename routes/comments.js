@@ -65,6 +65,19 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
                     req.flash("error", "Something went wrong.");
                     console.log(err);
                 } else {
+                    var postCommentDate = new Date();
+                    var dd = postCommentDate.getDate();
+                    var mm = postCommentDate.getMonth()+1; //January is 0!
+                    
+                    var yyyy = postCommentDate.getFullYear();
+                    if(dd<10){
+                        dd='0'+ dd;
+                    } 
+                    if(mm<10){
+                        mm='0'+ mm;
+                    } 
+                    var postCommentDate = dd +'/' + mm +'/' + yyyy;
+                    comment.time = postCommentDate;
                     // add username and id to comment
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;

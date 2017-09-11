@@ -13,3 +13,19 @@
 .delete-form {
     display: inline;
 }
+
+.form {
+    text-align: center;
+    padding-left: 400px;
+    padding-right: 400px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.pricing {
+    padding: 9px;
+}
+
+a {
+    color: black;
+}

@@ -4,7 +4,6 @@ router      = express.Router(),
 passport    = require("passport"),
 User        = require("../models/user");
 
-
 // ROOT ROUTE
 router.get("/", function (req, res) {
     res.render("landing");

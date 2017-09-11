@@ -4,7 +4,6 @@ router      = express.Router(),
 Campground  = require("../models/campground"),
 middleware  = require("../middleware");
 
-
 // INDEX - SHOW ALL CAMPGROUNDS
 router.get("/", function (req, res) {
     // get all campgrounds from database    
@@ -16,7 +15,6 @@ router.get("/", function (req, res) {
         }
     });
 });
-
 
 // CREATE - ADD A NEW CAMPGROUND TO DB
 router.post("/", middleware.isLoggedIn, function (req, res) {
@@ -41,12 +39,10 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
     });
 });
 
-
 // NEW - SHOW FORM TO CREATE A NEW CAMPGROUND
 router.get("/new", middleware.isLoggedIn, function (req, res) {
     res.render("campgrounds/new.ejs");
 });
-
 
 //SHOW - SHOWS MORE INFO ABOUT ONE CAMPGROUND
 router.get("/:id", function (req, res) {

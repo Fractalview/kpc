@@ -5,6 +5,7 @@ bodyParser    = require("body-parser"),
 mongoose      = require("mongoose"),
 Campground    = require("./models/campground"),
 Comment       = require("./models/comment"),
+Booking       = require("./models/booking"),
 seedDB        = require("./seeds.js"),
 passport      = require("passport"),
 LocalStrategy = require("passport-local"),
@@ -15,7 +16,8 @@ flash          = require("connect-flash")
 // REQUIRING ROUTES
 var commentRoutes = require("./routes/comments"),
 campgroundRoutes  = require("./routes/campgrounds"),
-indexRoutes       = require("./routes/index")
+indexRoutes       = require("./routes/index"),
+bookingRoutes     = require("./routes/booking");
 
 // CONNECTING TO A DB USING ENVIRONMENT VARIABLE
 // mongoose.connect(process.env.DATABASEURL);
@@ -60,6 +62,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds/:id/", bookingRoutes);
 
 //SETTING THE PORT
 app.set('port', (process.env.PORT || 5000));
