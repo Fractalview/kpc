@@ -77,5 +77,5 @@ app.get('/', function(request, response) {
 
 // STARTING THE APP ON A LOCAL SERVER
 // app.listen(3000, function () {
-//     console.log("YelpCamp server has started!");
+//     console.log("CampConnect server has started!");
 // });

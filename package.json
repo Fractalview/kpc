@@ -1,11 +1,11 @@
 {
-  "name": "yelpcamp",
+  "name": "campconnect",
   "version": "1.0.0",
   "description": "",
-  "main": "yelpcamp.js",
+  "main": "campconnect.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node yelpcamp.js"
+    "start": "node campconnect.js"
   },
   "author": "Alkaloid",
   "license": "ISC",
