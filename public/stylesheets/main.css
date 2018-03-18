@@ -31,13 +31,6 @@
     background: darkcyan
 }
 
-.container {
-    margin: 0 auto;
-    position: relative;
-    width: 940px;
-}
-
-
 
 body {
     /* background-color: rgb(1, 53, 53); */
@@ -147,6 +140,16 @@ ul {
     list-style: none;
 }
 
+span ul {
+    list-style-type: circle;
+    padding-left: 500px;
+    font-size: 15px;
+}
+
+h4 {
+    font-family:  "Times New Roman", Times, serif;
+    font-size: 20px;
+}
 
 ul.contact-info-widget li:first-child {
     border-top: 1px dotted #e1e1e1;
@@ -281,7 +284,22 @@ h3 {
 .container {
     margin: 0 auto;
     position: relative;
-    width: 940px;
+    width: 1000px;
+}
+
+#carousel-g {
+    float: left;
+    width: 400px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+#gildemeister h2 {
+    padding-top: 200px;
+    padding-left: 30px;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
 }
 
 

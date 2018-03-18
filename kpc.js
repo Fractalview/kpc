@@ -16,7 +16,7 @@ var onamaRoutes = require("./routes/o-nama");
 var prezentacijaRoutes = require("./routes/prezentacija");
 var pogonRoutes = require("./routes/pogon");
 var proizvodiRoutes = require("./routes/proizvodi");
-
+var kapacitetiRoutes = require("./routes/kapaciteti");
 
 // CONNECTING TO A DB USING ENVIRONMENT VARIABLE
 // mongoose.connect(process.env.DATABASEURL);
@@ -66,6 +66,7 @@ app.use("/o-nama", onamaRoutes);
 app.use("/prezentacija", prezentacijaRoutes);
 app.use("/pogon", pogonRoutes);
 app.use("/proizvodi", proizvodiRoutes);
+app.use("/kapaciteti", kapacitetiRoutes);
 
 
 /* app.get('/prezentacija', function(req, res) {
