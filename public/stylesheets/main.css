@@ -1,3 +1,4 @@
+
 #container {
     padding-left: 100px;
     padding-right: 100px;
@@ -77,22 +78,30 @@ container {
 }
 
 .portfolio-item-s #carousel-3 {
-    margin-top: 150px;
+    margin-top: 200px;
     margin-left: 200px;
     margin-right: 200px;
     border: 1px solid black;
 }
 
 div#myCarousel {
-    margin-top: 118px;
-    /* margin-bottom: 100px; */
+    margin-top: 50px;
+    /* margin-bottom: 30px; */
 }
 
+#kpc h1 {
+    text-align: center;
+    font-family:  "Times New Roman", Times, serif;
+}
 
+#kpc {
+    padding-top: 200px;
+}
 
 div#o-nama {
     margin-top: 50px;
     padding: 100px;
+    margin-bottom: 40px;
 }
 
 div#kontakt {
@@ -115,13 +124,14 @@ iframe {
     margin-top: 150px;
 }
 
+
 #title h1 {
     font-family:  "Times New Roman", Times, serif;
     text-align: center;
 }
 
 #video1 {
-    padding-top: 200px;
+    padding-top: 150px;
 }
 
 .video {
@@ -133,8 +143,6 @@ iframe {
     height: 400px;
     width: 100%;
 }
-
-
 
 ul {
     list-style: none;
@@ -186,8 +194,9 @@ li a:hover {
     margin-right: 20px;
 }
 
-h1 {
-    font-family:  "Times New Roman", Times, serif;       
+.logo h1 {
+    font-family:  "Times New Roman", Times, serif; 
+    font-size: 50px;      
 }
 
 p {
@@ -240,9 +249,6 @@ a {
     /* border-radius: 10px; */
 }
 
-#portfolio-item-1 img{
-    /* border-radius: 10px; */
-}
 
 .portfolio-item {
     margin-top: 50px;
@@ -251,10 +257,6 @@ a {
     border: 1px solid black;
     /* border-radius: 10px; */
 }
-
-/* #portfolio-item-2 img{
-    border-radius: 10px;
-} */
 
 h3 {
     text-align: center;
@@ -267,11 +269,6 @@ h3 {
     margin-right: auto;
     width: 90%;
 }
-
-/* #portfolio-container {
-    padding-top: 400px;
-} */
-
 
 #copyrights {
     width: 100%;
@@ -295,6 +292,30 @@ h3 {
     margin-left: 30px;
 }
 
+#carousel-h {
+    float: left;
+    width: 400px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+#carousel-u {
+    float: left;
+    width: 400px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+#maho700c {
+    float: left;
+    width: 400px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
 #gildemeister h2 {
     padding-top: 200px;
     padding-left: 30px;
@@ -302,6 +323,38 @@ h3 {
     font-family: "Times New Roman", Times, serif;
 }
 
+#hermle h2 {
+    padding-top: 0px;
+    padding-left: 30px;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#strug h2 {
+    padding-top: 0px;
+    padding-left: 30px;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#maho h2 {
+    padding-top: 0px;
+    padding-left: 30px;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+}
+
+div#gildemeister {
+    margin-bottom: 200px;
+}
+
+div#hermle {
+    margin-bottom: 200px;
+}
+
+div#strug {
+    margin-bottom: 300px;
+}
 
 @media screen and (min-width:480px) {
     .input {
